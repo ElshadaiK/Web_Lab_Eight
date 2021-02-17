@@ -17,19 +17,19 @@ function arrayDestructuring() {
     let arr = ["Margaery", "Tyrell"]
 
     //1. Destructor this array to firstName and lastName
+    let [firstName, lastName] = arr
 
     //2. Display it  [Replace it with ${firstName} ${lastName} once you have the variables]
-    des_arr.innerHTML = `Hello , I am firstName lastName `
+    des_arr.innerHTML = `Hello, I am ${firstName} ${lastName} `
 
 
     // we have an array with the name and surname
     let str = "Margaery Tyrell"
 
     //1. Destructor this string array to firstName and lastName by using split() method of string object
-
-    //2. Display it [Replace it with ${firstName} ${lastName} once you have the variables]
-    des_string.innerHTML = `Hello , I am firstName lastName `
-
+    let [firstName1, lastName1] = str.split(' ')
+        //2. Display it [Replace it with ${firstName} ${lastName} once you have the variables]
+    des_string.innerHTML = `Hello, I am ${firstName1} ${lastName1} `
 
 
 
@@ -42,15 +42,23 @@ function objectDestructuring() {
     let person = { firstName: "John", lastName: "Smith" }
 
     //1. Destructor this object to firstName and lastName 
+    let {
+        firstName,
+        lastName
+    } = person
 
     //2. Display it [Replace it with ${firstName} ${lastName} once you have the variables]
-    des_obj1.innerHTML = `Hi , I am firstName lastName `
+    des_obj1.innerHTML = `Hello, I am ${firstName} ${lastName} `
 
 
     //1. Destructor this object to fName and sName [different naming]
+    let {
+        firstName: fName,
+        lastName: sName
+    } = person
 
     //2. Display it [Replace it with ${Name} ${lName} once you have the variables]
-    des_obj2.innerHTML = `Hi , I am fName lName `
+    des_obj2.innerHTML = `Hi , I am ${fName} ${sName} `
 
 
 }
@@ -61,7 +69,7 @@ function spreadSyntax() {
     const arr = [1, 2, 3, 4]
 
     //1. Pass the array using spread syntax
-    const result = sum1();
+    const result = sum1(...arr);
 
     //Display it 
     spread_syntax.innerHTML = `The Sum is : ${result} `
@@ -101,11 +109,11 @@ function sum1(x1, x2, x3, x4) {
 
 
 //3. Make this function to support rest, and add 5 numbers
-function sum2(x1, x2) {
+function sum2(...arr) {
 
     //4. Function that add 5 numbers [Consider Adding the arr[0], arr[1], arr[2]]
 
-    return x1 + x2;
+    return arr[0] + arr[1] + arr[2] + arr[3] + arr[4];
 
 
 }
